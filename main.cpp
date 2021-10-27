@@ -1,22 +1,39 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-    double x, y;
-    //la prima eccezione valida interrompe il codice nel try
-    try{
-        cout << "Dividendo: "; cin >> x;
-        cout << "Divisore: ", cin >> y;
-        if(x > 10){
-            throw "Dividendo troppo grande!";
-        }
-        if(y == 0) {
-            throw "Divisione per zero!";
-        }
-        cout << x/y << endl;
-    } catch(const char* err) {
-        cout << err << endl;  
+int compare(int a, int b){
+    if(a < 0 || b < 0) throw "❌ ERR a o b sono negativi";
+    return a == b;
+}
+
+void test(){
+    try{ 
+        cout << compare(2, -4) << endl;
+    } catch(const char* err){
+        cout << err << endl;
     }
-    cout << "continua..." << endl;
+}
+
+int main() {
+    //double x, y;
+    //la prima eccezione valida interrompe il codice nel try
+    // try{
+    //     cout << "Dividendo: "; cin >> x;
+    //     cout << "Divisore: ", cin >> y;
+    //     if(x > 10){
+    //         throw "Dividendo troppo grande!";
+    //     }
+    //     if(y == 0) {
+    //         throw "Divisione per zero!";
+    //     }
+    //     cout << x/y << endl;
+    // } catch(const char* err) {
+    //     cout << err << endl;  
+    // }
+    // cout << "continua..." << endl;
+    
+    
+    test();
+
     return 0;
 } 
