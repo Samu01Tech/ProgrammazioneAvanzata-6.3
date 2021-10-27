@@ -1,21 +1,20 @@
 #include <iostream>
 #include <string>
+#include <stdexcept>
 using namespace std;
 
 int compare(int a, int b){
-    if(a < 0) throw "ERR a negativo";
-    if(b < 0) {
-        string b_neg = "ERR b negativo";
-        cerr << b_neg << b << endl;
-    };
+    if(a < 0 || b < 0) {
+        throw invalid_argument("❌ Valori negativi");
+    }
     return a == b;
 }
 
 void test(){
     try{ 
         cout << compare(2, -4) << endl;
-    } catch(const char* err){
-        cout << err << endl;
+    } catch(const invalid_argument& err){
+        cout << "Argomenti non validi" << endl;
     }
 }
 
