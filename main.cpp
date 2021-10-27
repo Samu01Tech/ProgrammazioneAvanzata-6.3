@@ -1,8 +1,13 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int compare(int a, int b){
-    if(a < 0 || b < 0) throw "❌ ERR a o b sono negativi";
+    if(a < 0) throw "ERR a negativo";
+    if(b < 0) {
+        string b_neg = "ERR b negativo";
+        cerr << b_neg << b << endl;
+    };
     return a == b;
 }
 
